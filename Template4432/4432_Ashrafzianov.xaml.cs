@@ -20,13 +20,26 @@ namespace Template4432
     public partial class _4432_Ashrafzianov : Window
     {
         DateTime birth;
+        String flname;
         public _4432_Ashrafzianov()
         {
             InitializeComponent();
             birth = new DateTime(2003, 06, 03);
+            flname = "Ашрафзянов Марат";
+        }
+        public _4432_Ashrafzianov(String flname, DateTime dateTime)
+        {
+            InitializeComponent();
+            this.birth = dateTime;
+            this.flname = flname;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
             TimeSpan dt = DateTime.Now - birth;
             ageTB.Text = (dt.Days / 365).ToString();
             ageDateTB.Text = birth.ToString("dd.MM.yyyy");
+            nameTB.Text = flname;
         }
     }
 }

@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Template4432"
         mc:Ignorable="d"
-        Title="Ashrafzianov Student Window from 4432 group" Height="450" Width="800">
+        Title="Ashrafzianov Student Window from 4432 group" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
         <StackPanel Width="300" Height="160">
-            <TextBlock Height="50" Width="Auto" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Ашрафзянов Марат</TextBlock>
+            <TextBlock x:Name="nameTB" Height="50" Width="Auto" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Ашрафзянов Марат</TextBlock>
             <StackPanel Orientation="Horizontal" Height="90" HorizontalAlignment="Center">
                 <TextBlock Name="ageTB" FontSize="75" FontWeight="Bold" Margin="0 0 10 0">0</TextBlock>
                 <TextBlock Name="ageTitleTB" FontSize="75" FontWeight="Bold">лет.</TextBlock>
