@@ -7,7 +7,21 @@
         mc:Ignorable="d"
         Title="Ashrafzianov Student Window from 4432 group" Height="450" Width="800"
         Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="ActionBtn" TargetType="Button">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="MinWidth" Value="70"/>
+            <Setter Property="MaxHeight" Value="36"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <StackPanel Height="160">
             <TextBlock x:Name="nameTB" Height="50" Width="Auto" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Ашрафзянов Марат</TextBlock>
             <StackPanel Orientation="Horizontal" Height="90" HorizontalAlignment="Center">
@@ -15,6 +29,11 @@
                 <TextBlock Name="ageTitleTB" FontSize="75" FontWeight="Bold">лет.</TextBlock>
             </StackPanel>
             <TextBlock HorizontalAlignment="Center" Name="ageDateTB" FontSize="10" Foreground="#FFAEAEAE">01.01.1970</TextBlock>
+        </StackPanel>
+        <StackPanel x:Name="ActionsPanel"
+            Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Style="{StaticResource ActionBtn}"></Button>
+            <Button Style="{StaticResource ActionBtn}"></Button>
         </StackPanel>
     </Grid>
 </Window>

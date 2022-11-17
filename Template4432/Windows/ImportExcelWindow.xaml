@@ -1,0 +1,135 @@
+﻿<Window x:Class="Template4432.Windows.ImportExcelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Template4432.Windows"
+        mc:Ignorable="d"
+        Title="Import from Excel" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="ElementH1" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0 0 0 15"/>
+        </Style>
+        <Style x:Key="ElementH2" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0 10 0 10"/>
+        </Style>
+        <Style x:Key="ElementDataTitle" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontWeight" Value="Thin"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ScrollViewer
+            Grid.Row="1" Grid.Column="1"
+            VerticalScrollBarVisibility="Hidden">
+            <StackPanel>
+                <TextBlock Style="{StaticResource ElementH1}">Import from Excel</TextBlock>
+                <TextBlock Style="{StaticResource ElementH2}">File selection</TextBlock>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MinHeight="20"/>
+                        <RowDefinition MaxHeight="20"/>
+                        <RowDefinition MaxHeight="20"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Style="{StaticResource ElementDataTitle}">File:</TextBlock>
+                    <TextBlock Style="{StaticResource ElementDataTitle}"
+                               Grid.Row="1">Sheet Name:</TextBlock>
+                    <TextBox x:Name="excelSheetNameTB"
+                               Grid.Row="1" Grid.Column="1"
+                             TextChanged="excelSheetNameTB_TextChanged">ФЛ</TextBox>
+                    <TextBlock x:Name="databaseTB"
+                               Grid.Row="2" Grid.Column="1"></TextBlock>
+                    
+                    <StackPanel
+                        Margin="0 0 0 10"
+                        Grid.Row="0" Grid.Column="1">
+                        <TextBlock x:Name="fileNotSelectedTB" Foreground="#FF991919" >not selected</TextBlock>
+                        <TextBlock x:Name="selectedFileTB" Foreground="#FF4F4F4F" >selected file</TextBlock>
+                        <Button x:Name="selectFileButton" Click="selectFileButton_Click"
+                                Margin="0 10 0 0">Select File</Button>
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock Style="{StaticResource ElementH2}">File loading</TextBlock>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MinHeight="20"/>
+                        <RowDefinition MinHeight="20"/>
+                        <RowDefinition MinHeight="20"/>
+                        <RowDefinition MinHeight="20"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Style="{StaticResource ElementDataTitle}">Count:</TextBlock>
+                    <TextBlock Style="{StaticResource ElementDataTitle}"
+                               Grid.Row="1">Errors:</TextBlock>
+
+                    <TextBlock x:Name="countTB"
+                               Grid.Column="1">0</TextBlock>
+                    <StackPanel Grid.Row="1" Grid.Column="1">
+                        <TextBlock x:Name="loadErrorsTB"
+                               Grid.Column="1">0</TextBlock>
+                        <StackPanel x:Name="loadErrorsStack"></StackPanel>
+                    </StackPanel>
+
+                    <Button x:Name="managerButton"
+                            Grid.ColumnSpan="2" Grid.Row="3"
+                            Click="managerButton_Click">Manage</Button>
+                    <Button x:Name="loadButton"
+                            Grid.ColumnSpan="2" Grid.Row="2"
+                            Click="loadButton_Click">Load</Button>
+                </Grid>
+
+                <TextBlock Style="{StaticResource ElementH2}">Database inserting</TextBlock>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MinHeight="20"/>
+                        <RowDefinition MinHeight="20"/>
+                        <RowDefinition MinHeight="20"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Style="{StaticResource ElementDataTitle}">Database Name:</TextBlock>
+                    <TextBlock Style="{StaticResource ElementDataTitle}"
+                               Grid.Row="1">Errors:</TextBlock>
+
+                    <TextBlock Grid.Row="0" Grid.Column="1">ISRPO_LAB_Ashrafzianov</TextBlock>
+                    <StackPanel Grid.Row="1" Grid.Column="1">
+                        <TextBlock x:Name="databaseErrorsTB"
+                               Grid.Column="1">0</TextBlock>
+                        <StackPanel x:Name="databaseErrorsStack">
+                            
+                        </StackPanel>
+                    </StackPanel>
+                    <Button x:Name="databaseInsertButton"
+                            Grid.ColumnSpan="2" Grid.Row="2"
+                            Click="databaseInsertButton_Click">Insert</Button>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
